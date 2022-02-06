@@ -15,12 +15,10 @@ def Basic():
         visit(node)
         preorder(node.left)
         preorder(node.left)
-
     def recv_inorder(node):
         inorder(node.left)
         visit(node)
         inorder(node.left)
-
     def recv_postorder(node):
         postorder(node.left)
         postorder(node.left)
@@ -31,16 +29,12 @@ def Basic():
 def Trie():
 
     class TrieNode:
-
         def __init__(self):
             self.is_word = False
             self.next = {}
-
     class Trie:
-
         def __init__(self):
             self.root = TrieNode()
-
         def add(self, word):
             cur = self.root
             for c in word:
@@ -48,7 +42,6 @@ def Trie():
                     cur.next[c] = TrieNode()
                 cur = cur.next[c]
             cur.is_word = True
-
         def search(self, word):
             cur = self.root
             for c in word:
@@ -56,7 +49,6 @@ def Trie():
                     return False
                 cur = cur.next[c]
             return cur.is_word
-
         def startswith(self, word):
             cur = self.root
             for c in word:
