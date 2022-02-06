@@ -5,6 +5,10 @@ def Basic():
     def init():
         visited = [[False for _ in arr[0]] for _ in arr]
 
+        for i in range(len(arr)):
+            for j in range(len(arr[0])):
+                pass
+
     def dfs(arr):
         def helper(arr, i, j, visited):
             if i < 0 or j < 0 or i >= len(arr) or j >= len(arr[0]):
