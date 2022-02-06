@@ -23,8 +23,27 @@ def Basic():
         postorder(node.left)
         postorder(node.left)
         visit(node)
-    
 
+    def iter_preorder(root):
+        stack = [root]
+        while len(stack) > 0:
+            node = stack.pop()
+            if node is not None:
+                visit(node)
+                stack.append(node.left)
+                stack.append(node.right)
+    def iter_inorder(root):
+        cur, stack = root, []
+        while cur is not None or len(stack) > 0:
+            if cur is not None:
+                stack.append(cur)
+                cur = cur.left
+            else:
+                node = stack.pop()
+                visit(node)
+                cur = node.right
+    def iter_postorder(root):
+        pass
 
 def Trie():
 
