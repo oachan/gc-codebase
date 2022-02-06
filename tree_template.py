@@ -31,12 +31,16 @@ def Basic():
 def Trie():
 
     class TrieNode:
+
         def __init__(self):
             self.is_word = False
             self.next = {}
+
     class Trie:
+
         def __init__(self):
             self.root = TrieNode()
+
         def add(self, word):
             cur = self.root
             for c in word:
@@ -44,6 +48,7 @@ def Trie():
                     cur.next[c] = TrieNode()
                 cur = cur.next[c]
             cur.is_word = True
+
         def search(self, word):
             cur = self.root
             for c in word:
@@ -51,3 +56,11 @@ def Trie():
                     return False
                 cur = cur.next[c]
             return cur.is_word
+
+        def startswith(self, word):
+            cur = self.root
+            for c in word:
+                if c not in cur.next:
+                    return False
+                cur = cur.next[c]
+            return True
