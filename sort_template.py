@@ -12,3 +12,12 @@ def binary_search(arr, target):
             arr[mid] == target:
             return mid
     return -1
+
+def merge_sort():
+    pass
+
+def quick_sort():
+    pass
+
+def bucket_sort():
+    pass
