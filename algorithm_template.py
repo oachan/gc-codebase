@@ -11,6 +11,6 @@ def sliding_window(arr):
     start = 0
     for end in range(len(arr)):
         # Do something at end.
-        while is_endfail_condiction(start):
+        while is_endfail_condiction():
             # Do something at start.
             start += 1
