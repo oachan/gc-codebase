@@ -11,30 +11,32 @@ def Basic():
 
 def one_index():
 
-    def dfs(arr):
+    def dfs(arr, i, j):
         def helper(arr, i, j, visited):
             if i < 0 or j < 0 or i >= len(arr) or j >= len(arr[0]):
                 return
             if visited[i][j] == True:
                 return
+            # Add condiction here...
             visited[i][j] = True
             # Do action here...
-            dfs(arr, i + 1, j, visited)
-            dfs(arr, i - 1, j, visited)
-            dfs(arr, i, j + 1, visited)
-            dfs(arr, i, j - 1, visited)
+            helper(arr, i + 1, j, visited)
+            helper(arr, i - 1, j, visited)
+            helper(arr, i, j + 1, visited)
+            helper(arr, i, j - 1, visited)
         visited = [[False for _ in arr[0]] for _ in arr]
-        helper(arr, 0, 0, visited)
+        helper(arr, i, j, visited)
 
-    def bfs(arr):
+    def bfs(arr, i, j):
         visited = [[False for _ in arr[0]] for _ in arr]
-        queue = [(0, 0)]
+        queue = [(i, j)]
         while len(queue) > 0:
             i, j = queue.pop(0)
             if i < 0 or j < 0 or i >= len(arr) or j >= len(arr[0]):
                 continue
             if visited[i][j] == True:
                 continue
+            # Add condiction here...
             visited[i][j] = True
             # Do action here...
             queue.append((i + 1, j))
@@ -50,6 +52,7 @@ def all_index():
                 return
             if visited[i][j] == True:
                 return
+            # Add condiction here...
             visited[i][j] = True
             # Do action here...
             dfs(arr, i + 1, j, visited)
@@ -63,4 +66,21 @@ def all_index():
                 helper(arr, 0, 0, visited)
 
     def bfs(arr):
-        pass
+        visited = [[False for _ in arr[0]] for _ in arr]
+        for i in range(len(arr)):
+            for j in range(len(arr[0])):
+                queue = [(i, j)]
+                while len(queue) > 0:
+                    i, j = queue.pop(0)
+                    if i < 0 or j < 0 or i >= len(arr) or j >= len(arr[0]):
+                        continue
+                    if visited[i][j] == True:
+                        continue
+                    # Add condiction here...
+                    visited[i][j] = True
+                    # Do action here...
+                    queue.append((i + 1, j))
+                    queue.append((i - 1, j))
+                    queue.append((i, j + 1))
+                    queue.append((i, j - 1))
+                    visited[i][j] = True
