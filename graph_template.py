@@ -47,3 +47,6 @@ def DAG():
             if val > 0:
                 return []
         return path
+
+    def lowest_common_ancestor():
+        pass
