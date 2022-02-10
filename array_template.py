@@ -1,7 +1,16 @@
 #!/usr/bin/env python3
 
 def two_pointer(arr):
-    pass
+    start, end = 0, len(arr) - 1
+    while start <= end:
+        if is_match_condiction():
+            # Do something here.
+            pass
+        elif is_should_move_left:
+            start += 1
+        elif is_should_move_right:
+            right -= 1
+
 
 def sliding_window(arr):
     start = 0
