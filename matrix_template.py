@@ -1,18 +1,16 @@
 #!/usr/bin/env python3
 
 def Basic():
-
     def init():
-        visited = [[False for _ in arr[0]] for _ in arr]
-
         for i in range(len(arr)):
             for j in range(len(arr[0])):
+                # Do action here...
                 pass
 
 def one_index():
 
     def dfs(arr, i, j):
-        def helper(arr, i, j, visited):
+        def foo(arr, i, j, visited):
             if i < 0 or j < 0 or i >= len(arr) or j >= len(arr[0]):
                 return
             if visited[i][j] == True:
@@ -20,12 +18,12 @@ def one_index():
             # Add condiction here...
             visited[i][j] = True
             # Do action here...
-            helper(arr, i + 1, j, visited)
-            helper(arr, i - 1, j, visited)
-            helper(arr, i, j + 1, visited)
-            helper(arr, i, j - 1, visited)
+            foo(arr, i + 1, j, visited)
+            foo(arr, i - 1, j, visited)
+            foo(arr, i, j + 1, visited)
+            foo(arr, i, j - 1, visited)
         visited = [[False for _ in arr[0]] for _ in arr]
-        helper(arr, i, j, visited)
+        foo(arr, i, j, visited)
 
     def bfs(arr, i, j):
         visited = [[False for _ in arr[0]] for _ in arr]
@@ -47,7 +45,7 @@ def one_index():
 def all_index():
 
     def dfs(arr):
-        def helper(arr, i, j, visited):
+        def foo(arr, i, j, visited):
             if i < 0 or j < 0 or i >= len(arr) or j >= len(arr[0]):
                 return
             if visited[i][j] == True:
@@ -55,15 +53,15 @@ def all_index():
             # Add condiction here...
             visited[i][j] = True
             # Do action here...
-            dfs(arr, i + 1, j, visited)
-            dfs(arr, i - 1, j, visited)
-            dfs(arr, i, j + 1, visited)
-            dfs(arr, i, j - 1, visited)
+            foo(arr, i + 1, j, visited)
+            foo(arr, i - 1, j, visited)
+            foo(arr, i, j + 1, visited)
+            foo(arr, i, j - 1, visited)
             visited[i][j] = False
         visited = [[False for _ in arr[0]] for _ in arr]
         for i in range(len(arr)):
             for j in range(len(arr[0])):
-                helper(arr, 0, 0, visited)
+                foo(arr, 0, 0, visited)
 
     def bfs(arr):
         visited = [[False for _ in arr[0]] for _ in arr]
