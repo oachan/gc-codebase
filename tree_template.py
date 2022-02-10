@@ -8,42 +8,62 @@ def Basic():
             self.left = None
             self.right = None
 
-    def visit(node):
-       print(node.val)
+    def recursive():
+        def visit(node):
+           print(node.val)
+        def preorder(node):
+            visit(node)
+            preorder(node.left)
+            preorder(node.left)
+        def inorder(node):
+            inorder(node.left)
+            visit(node)
+            inorder(node.left)
+        def postorder(node):
+            postorder(node.left)
+            postorder(node.left)
+            visit(node)
 
-    def recv_preorder(node):
-        visit(node)
-        preorder(node.left)
-        preorder(node.left)
-    def recv_inorder(node):
-        inorder(node.left)
-        visit(node)
-        inorder(node.left)
-    def recv_postorder(node):
-        postorder(node.left)
-        postorder(node.left)
-        visit(node)
-
-    def iter_preorder(root):
-        stack = [root]
-        while len(stack) > 0:
-            node = stack.pop()
-            if node is not None:
-                visit(node)
-                stack.append(node.left)
-                stack.append(node.right)
-    def iter_inorder(root):
-        cur, stack = root, []
-        while cur is not None or len(stack) > 0:
-            if cur is not None:
-                stack.append(cur)
-                cur = cur.left
-            else:
+def Advanced():
+    def iterative():
+        def visit(node):
+           print(node.val)
+        def preorder(root):
+            stack = [root]
+            while len(stack) > 0:
                 node = stack.pop()
-                visit(node)
-                cur = node.right
-    def iter_postorder(root):
+                if node is not None:
+                    visit(node)
+                    stack.append(node.left)
+                    stack.append(node.right)
+        def inorder(root):
+            cur, stack = root, []
+            while cur is not None or len(stack) > 0:
+                if cur is not None:
+                    stack.append(cur)
+                    cur = cur.left
+                else:
+                    node = stack.pop()
+                    visit(node)
+                    cur = node.right
+        def postorder(root):
+            pass
+    
+    def height(node):
+        if node is None:
+            return 0
+        return max(height(node.left), height(node.right)) + 1
+    def diameter(node):
+        if node is None:
+            return 0
+        return max(
+            height(node.left) + height(node.right),
+            max(diameter(node.left), diameter(node.right))
+        )
+    
+    def lowest_common_ancestor():
         pass
+
 
 def Trie():
 
