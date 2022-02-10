@@ -9,11 +9,11 @@ def basic():
 def DAG():
 
     def dfs(n, root):
-        def helper(node, visited)
+        def foo(node, visited)
             if visited[node.val] is False:
                 visited[node.val] = True
                 for next_node in node.neighbors:
-                    helper(next_node, visited)
+                    foo(next_node, visited)
         visited = [False for _ in range(n)]
         dfs(root, visited)
 
