@@ -61,7 +61,7 @@ def all_index():
         visited = [[False for _ in arr[0]] for _ in arr]
         for i in range(len(arr)):
             for j in range(len(arr[0])):
-                foo(arr, 0, 0, visited)
+                foo(arr, i, j, visited)
 
     def bfs(arr):
         visited = [[False for _ in arr[0]] for _ in arr]
